@@ -1,0 +1,11 @@
+services:
+  whisper-dash:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "4300:4300"
+    environment:
+      WHISPER_URL: ${WHISPER_URL:-http://100.89.249.230:9000}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-500}
+    volumes:
+      - ./data:/app/data
